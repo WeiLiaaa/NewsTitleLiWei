@@ -52,7 +52,7 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
         //得到FragmentManager
         fm = getSupportFragmentManager();
         //默认显示首页
-        fm.beginTransaction().replace(R.id.zhuye_fl,new FragmentHome()).commit();
+        fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentHome()).commit();
     }
 
     private void onClickonClickDemo() {
@@ -85,6 +85,7 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
         zhuye_dengLu_tv = (TextView) findViewById(R.id.zhuye_dengLu_tv);
     }
 
+
     /**
      * 点击事件
      *
@@ -94,8 +95,7 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.zhuye_home:
-                //显示首页
-                fm.beginTransaction().replace(R.id.zhuye_fl,new FragmentHome()).commit();
+                fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentHome()).commit();
                 //改变控件颜色
                 zhuye_home_image.setImageResource(R.drawable.b_newhome_tabbar_press);
                 zhuye_home_tv.setTextColor(Color.RED);
@@ -111,8 +111,7 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.zhuye_video:
-                //显示视频
-                fm.beginTransaction().replace(R.id.zhuye_fl,new FragmentVideo()).commit();
+                fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentVideo()).commit();
                 //改变控件颜色
                 zhuye_home_image.setImageResource(R.drawable.b_newhome_tabbar);
                 zhuye_home_tv.setTextColor(Color.BLACK);
@@ -128,7 +127,7 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.zhuye_care:
                 //显示关注
-                fm.beginTransaction().replace(R.id.zhuye_fl,new FragmentCare()).commit();
+                fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentCare()).commit();
                 //改变控件颜色
                 zhuye_home_image.setImageResource(R.drawable.b_newhome_tabbar);
                 zhuye_home_tv.setTextColor(Color.BLACK);
@@ -144,7 +143,7 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.zhuye_dengLu:
                 //显示登录
-                fm.beginTransaction().replace(R.id.zhuye_fl,new FragmentDengLu()).commit();
+                fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentDengLu()).commit();
                 //改变控件颜色
                 zhuye_home_image.setImageResource(R.drawable.b_newhome_tabbar);
                 zhuye_home_tv.setTextColor(Color.BLACK);

@@ -15,20 +15,21 @@ import com.liwei.newstitle.R;
  */
 
 public class HomeTitleFragment extends Fragment {
+
+    private View view;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceSe) {
-        View view = inflater.inflate(R.layout.hometitle_fragment, container, false);
-
-        String type = getArguments().get("type").toString();
-        ((TextView)view.findViewById(R.id.tv)).setText(type);
+        view = inflater.inflate(R.layout.hometitle_fragment, container, false);
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        String type = getArguments().get("type").toString();
+        ((TextView)view.findViewById(R.id.tv)).setText(type);
     }
 }
