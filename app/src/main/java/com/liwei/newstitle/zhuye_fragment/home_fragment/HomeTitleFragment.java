@@ -11,7 +11,7 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.liwei.newstitle.R;
 import com.liwei.newstitle.zhuye_fragment.home_fragment.hometitleadapter.HomeTitleAdapter;
-import com.liwei.newstitle.zhuye_fragment.home_fragment.hometitleadapter.bean.HomeTitleFragmentBean;
+import com.liwei.newstitle.zhuye_fragment.home_fragment.hometitleadapter.httputils.bean.HomeTitleFragmentBean;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
