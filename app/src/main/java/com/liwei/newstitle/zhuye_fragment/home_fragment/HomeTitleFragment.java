@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.liwei.newstitle.R;
 
@@ -22,14 +21,19 @@ public class HomeTitleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceSe) {
+
         view = inflater.inflate(R.layout.hometitle_fragment, container, false);
+
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        String type = getArguments().get("type").toString();
-        ((TextView)view.findViewById(R.id.tv)).setText(type);
+
+        String url = (String) getArguments().get("url");
+        //TextView tv= (TextView) view.findViewById(R.id.tv);
+
+
     }
 }

@@ -2,7 +2,9 @@ package com.liwei.newstitle;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -40,6 +42,11 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
     private ImageView zhuye_dengLu_image;
     private TextView zhuye_dengLu_tv;
     private FragmentManager fm;
+    private FragmentHome home;
+    private FragmentDengLu dengLu;
+    private FragmentCare care;
+    private FragmentVideo video;
+    private Fragment fragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,10 +56,25 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
         initView();
         //监听事件
         onClickonClickDemo();
-        //得到FragmentManager
-        fm = getSupportFragmentManager();
-        //默认显示首页
-        fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentHome()).commit();
+        if (home == null) {
+            home = new FragmentHome();
+        }
+        showFragment(home);
+    }
+//使用Fragment 的hide和show展示4个fragment方法
+    public void showFragment(Fragment f) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        if (fragment != null) {
+            transaction.hide(fragment);
+        }
+        if (!f.isAdded()) {
+            transaction.add(R.id.zhuye_fl, f);
+        }
+
+        transaction.show(f);
+        transaction.commit();
+        fragment = f;
     }
 
     private void onClickonClickDemo() {
@@ -93,9 +115,13 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
      */
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.zhuye_home:
-                fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentHome()).commit();
+                if (home == null) {
+                    home = new FragmentHome();
+                }
+                showFragment(home);
                 //改变控件颜色
                 zhuye_home_image.setImageResource(R.drawable.b_newhome_tabbar_press);
                 zhuye_home_tv.setTextColor(Color.RED);
@@ -111,7 +137,10 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.zhuye_video:
-                fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentVideo()).commit();
+                if (video==null){
+                    video= new FragmentVideo();
+                }
+                showFragment(video);
                 //改变控件颜色
                 zhuye_home_image.setImageResource(R.drawable.b_newhome_tabbar);
                 zhuye_home_tv.setTextColor(Color.BLACK);
@@ -127,7 +156,10 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.zhuye_care:
                 //显示关注
-                fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentCare()).commit();
+                if (care==null){
+                    care= new FragmentCare();
+                }
+                showFragment(care);
                 //改变控件颜色
                 zhuye_home_image.setImageResource(R.drawable.b_newhome_tabbar);
                 zhuye_home_tv.setTextColor(Color.BLACK);
@@ -143,7 +175,10 @@ public class ZhuYeActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.zhuye_dengLu:
                 //显示登录
-                fm.beginTransaction().replace(R.id.zhuye_fl, new FragmentDengLu()).commit();
+                if (dengLu==null){
+                    dengLu= new FragmentDengLu();
+                }
+                showFragment(dengLu);
                 //改变控件颜色
                 zhuye_home_image.setImageResource(R.drawable.b_newhome_tabbar);
                 zhuye_home_tv.setTextColor(Color.BLACK);
