@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.liwei.newstitle.R;
-import com.liwei.newstitle.zhuye_fragment.fragmentadapter.HomeTitleAdapter;
 import com.liwei.newstitle.zhuye_fragment.home_fragment.HomeTitleFragment;
+import com.liwei.newstitle.zhuye_fragment.home_fragment.hometitleadapter.HomeTitleAdapterzhu;
 
 import java.util.ArrayList;
 
@@ -97,7 +97,7 @@ public class FragmentHome extends Fragment {
                 "=18&os_version=4.3&openudid=e468d99fa5f6c91f");
         //添加Fragment集合
         initFragmentList();
-        HomeTitleAdapter adapter=new HomeTitleAdapter(getFragmentManager(),getActivity(),
+        HomeTitleAdapterzhu adapter=new HomeTitleAdapterzhu(getFragmentManager(),getActivity(),
                 title,list_fragment);
         home_vp.setAdapter(adapter);
 
