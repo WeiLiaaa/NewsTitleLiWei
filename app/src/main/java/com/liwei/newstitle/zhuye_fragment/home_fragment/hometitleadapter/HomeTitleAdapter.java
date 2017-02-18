@@ -106,9 +106,13 @@ public class HomeTitleAdapter extends BaseAdapter {
         }
     }
 
-    public void addData(List<HomeTitleFragmentBean.DataBean> data) {
+    public void addData(List<HomeTitleFragmentBean.DataBean> data, boolean falg) {
         if (data != null) {
-            datas.addAll(data);
+            if (falg){
+                datas.addAll(data);
+            }else{
+                datas.clear();
+            }
         }
     }
 
