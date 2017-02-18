@@ -100,6 +100,7 @@ public class FragmentHome extends Fragment {
         HomeTitleAdapterzhu adapter=new HomeTitleAdapterzhu(getFragmentManager(),getActivity(),
                 title,list_fragment);
         home_vp.setAdapter(adapter);
+        home_vp.setOffscreenPageLimit(3);
 
         //声明tablayout控件
         home_title = (TabLayout) view.findViewById(R.id.home_title);
